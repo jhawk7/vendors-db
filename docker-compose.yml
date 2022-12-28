@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  vendors-db:
+    image: jhawk7/vendors-db
+    build: .
+    restart: always
+    env_file:
+      - .env 
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - "3306:3306"
+    #volumes:
+     #volume will be created to data persistence in separate docker-compose file with vendors-api
+     # - ./data:/var/lib/mysql
